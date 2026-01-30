@@ -42,3 +42,28 @@ Primary Language which are supported:
 6. SQL
 7. Bash
 8. many more....
+
+### Writing Algorithm: 
+Make sure include below packages for algorithm  
+```latex
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+```
+
+Code  
+```latex
+\begin{algorithm}
+\caption{Binary Search}
+\begin{algorithmic}
+\State $l \gets 0$
+\State $r \gets n - 1$
+\While{$l \le r$}
+    \State $m \gets \lfloor (l + r)/2 \rfloor$
+    \If{$A[m] = x$}
+        \State \Return $m$
+    \EndIf
+\EndWhile
+\State \Return $-1$
+\end{algorithmic}
+\end{algorithm}
+```
