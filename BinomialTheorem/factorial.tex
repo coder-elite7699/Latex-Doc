@@ -1,0 +1,178 @@
+\section*{Introduction to factorial}
+The factorial of natural number $r$ is denoted by $r!$
+
+\subsection*{Definition}
+Factorial of natural number $r$ is the product of all natural number from 1 to r.
+\begin{enumerate}[label=(\alph*)]
+    \item $5! = 1\cdot2\cdot3\cdot4\cdot5 = 120$
+    \item $3! = 1\cdot2\cdot3 = 6$
+\end{enumerate}
+
+\subsection*{Observation}
+\begin{enumerate}
+    \item Factorial of fraction or negative numbers are not defined.
+    \begin{enumerate}
+        \item $(\frac{3}{4})! = undefined$
+        \item $(-12)! = undefined$
+    \end{enumerate}
+    \item Factorial of every natural number is $even$ except for 1.
+\end{enumerate}
+\subsection*{Common Factorial Values}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c c}
+\hline
+$n$ & $n!$ \\
+\hline
+1 & 1 \\
+2 & 2 \\
+3 & 6 \\
+4 & 24 \\
+5 & 120 \\
+6 & 720 \\
+\hline
+\end{tabular}
+\caption{Common factorial values}
+\label{table:factorial}
+\end{table}
+
+\subsection*{Some Facts}
+\begin{enumerate}
+    \item Factorial of number greater than or equal to 5 will always have $0$ in their unit place.
+    \item If a number is perfect square then only 6 of these are possible in unit place \{0,1,4,5,6,9\}
+    \item Sum of factorials after 4 will have unit place digit as 3.
+\end{enumerate}
+
+\subsection*{Question: What is the minimum value of r if $r!$ is divisible by 13 where $r\in N$}
+\textbf{Solution:} $r! = 1\cdot2\cdot3\cdots r$\\
+In order to a number to be divisible by 13 it should have 13 in is factors, the only point the 13 is included in factorial of number when $r = 13$. So, $r_{min} = 13$.
+
+\subsection*{Question: Is $13!$ divisible by 26}
+\textbf{Solution: } Both 13 and 2 comes in $13!$. Also the factor of 26 is 2 and 13 hence, 13 is completely divisible by 26.
+
+\subsection*{Question: Find the minimum value of $r(r \in N)$ if $r!$ is divisible by 16.}
+\textbf{solution: } \\
+$1 \times2 \times3 \times4 \times5 \times6 \times7 \times8 \cdots$ \\
+Till here we have four 2's. 
+From 2(1), 4(2),6(1), total four 2's we have.\\
+And $16=2\times2\times2\times2$
+Hence $r_{min} = 6$ which is completely divisible by 16.
+
+\subsection*{Question: Solve for $x,y$ where $x,y \in N$ \\ $1!+2!+3!+\cdots+x! = y^2$ }
+\textbf{Solution: } 
+$r!$ will have unit digit as $0$ for $r \geq 5$. Also the sum of factorial natural number for $r \geq 4$ will have unit digit 3. We know any number which is perfect square will not have unit place digit 3. Hence the equation will only satisfies for $x=1$ and $x = 3$.
+
+\subsection*{Question: Find the $x(\in N)$\\ such that it satisfy. $1!+2!+3!+\cdots+x!= 9\cdot y$}
+\textbf{Solution: }
+The equation to satisfy the LHS should be multiple of 9.\\
+Now the sum of factorial till $5$ is divisible by 9. \\
+$1!+2!+3!+4!+5! = 153$\\
+The every factorial of number $\geq 6$ is always be divisible by 9. As 3 comes two times till $6!$. If a number is divisible by 9 and we add a number which is also divisible by 9 then the resulting number will always be divisible by 9.
+\newpage
+\subsection*{Question: Evaluate the statement given below}
+Let \[
+x = \sum_{r=1}^{2n}r!
+\]
+\[
+y = \sum_{r=1}^{n}(2r)! 
+\]
+Statements
+\begin{enumerate}[label = (\alph*)]
+    \item x is divisible by y
+    \item y is divisible by x
+\end{enumerate}
+\textbf{Solution: }\\
+$x = 1!+2!+3!+\cdots+(2n)!$ \\
+$y = 2!+4!+6!+\cdots+(2n)!$ \\
+Number of term in $x = 2n$ and\\
+Number of term in $y = n$\\
+Since number of term in y is less so y is never be divisible by x, that makes statement 1 false.\\
+Now the x is odd, as after 2 all are even and when added 1 it become odd. And y is even because addition of factorial after 2 is even.\\
+Odd can not divide even.
+\newpage
+\section*{Exponent}
+\subsection*{Find the maximum value of $r(\in N)$ that $\frac{10!}{2^r}$ is an integer.}
+\textbf{Solution: } \\
+$10! = 1 \times2 \times3 \times4 \times5 \times6 \times7 \times8 \times9 \times10$\\
+Number of two's: 
+$(2, 1), (4,2), (6, 1), (8, 3), (10, 1  )$
+So total 8 two's are there we can divide the $10!$. Hence $r_{max} = 8$
+
+\section*{General Formula}
+Exponent of prime $p$ in $k!$ is given as.
+$\left[\frac{k}{p}\right]+\left[\frac{k}{p^2}\right]+\left[\frac{k}{p^3}\right]+\cdots$ \\
+Where [.] denotes G.I.F
+
+\subsection*{Question: Exponent of 2 in 10!}
+\textbf{Solution: }\\
+$\left[\frac{10}{2}\right]+\left[\frac{10}{4}\right]+\left[\frac{10}{16}\right]+\cdots$ \\ \\
+$5+2+1 = 8$
+
+\subsection*{Explanation}
+Let say we are find the maximum power of 3 which can divide the 100!. \\
+$1 \times2 \times3 \times4 \times5 \times6 \times7 \times8 \times9 \times \cdots \times27 \times \cdots \times 81\times \cdots \times99 \times100 $ \\
+When we are doing $\left[\frac{100}{3}\right]$ we get 33 which convey a meaning that there are 33 number which have 3 multiple. This is not sufficient, because 81 is although divisible by 3 but it counted just one power , we will use 9  and then sub sequence power of 3 to calculate the maximum power which can divide the given number. Just ask one simple question how many power does a number contribute in 3
+
+\subsection*{Question: Find $r_{max}$ if $120!$ is  divisible by $6^r$}
+\textbf{Solution: }
+\\
+$6^r = 2^r\cdot 3^3$\\
+We will find the $120!$ divisibility by $2^r$ and $3^r$. The common power or the lower one will do the work.
+
+\subsection*{Question: Find $r_{max}$ for $12^r$ divides 120!}
+Answer is 58
+
+\subsection*{Question: Find the number of zeros at the end of $150!$}
+
+\textbf{Solution:}
+
+Since $10 = 2 \times 5$, we find the powers of $2$ and $5$ in $150!$.
+
+\medskip
+\textbf{Power of 2:}
+\[
+\begin{aligned}
+\left[\frac{150}{2}\right]
++ \left[\frac{150}{4}\right]
++ \left[\frac{150}{8}\right]
++ \left[\frac{150}{16}\right]
++ \left[\frac{150}{32}\right]
++ \left[\frac{150}{64}\right]
++ \left[\frac{150}{128}\right]
+&= 75 + 37 + 18 + 9 + 4 + 2 + 1 \\
+&= 146.
+\end{aligned}
+\]
+
+\textbf{Power of 5:}
+\[
+\begin{aligned}
+\left[\frac{150}{5}\right]
++ \left[\frac{150}{25}\right]
++ \left[\frac{150}{125}\right]
+&= 30 + 6 + 1 \\
+&= 37.
+\end{aligned}
+\]
+
+To form a factor of $10$, we need one $2$ and one $5$.  
+Hence, the number of trailing zeros is
+
+\[
+\min(146, 37) = 37.
+\]
+
+\[
+\boxed{37}
+\]
+
+\subsection*{Question: Let $57\cdot58\cdot59\cdots200=5^r\cdot I$ Where $r,T \in N$, the find the $r_{max}$.}
+\textbf{Solution: } \\
+\[
+\begin{aligned}
+57\cdot58\cdot59\cdots200 = \frac{1\cdot2\cdot3\cdots200}{1\cdot2\cdot3\cdots56}
+&=\frac{120!}{56!}
+\end{aligned}
+\]
+Here we have to find the power of 5. The $r_{max}=37$

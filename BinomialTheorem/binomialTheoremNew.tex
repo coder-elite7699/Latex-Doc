@@ -1,0 +1,1204 @@
+\documentclass[12pt]{article}
+
+% Packages
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{enumitem}
+% Title Information
+\title{}
+\author{}
+\date{}
+
+% Custom Commands
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+
+\begin{document}
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    
+    {\Huge\bfseries The Binomial Theorem\par}
+    \vspace{1cm}
+    
+    {\Large From Factorials to Multinomial Expansion\par}
+    \vspace{2cm}
+    
+    {\Large A Mathematical Monograph\par}
+    \vfill
+    
+    {\Large Pradeep Kumar\par}
+    \vspace{0.5cm}
+    
+    {\large \today\par}
+\end{titlepage}
+\section*{Note For the document}
+This work is a personal study of the Binomial Theorem and its related topics, 
+beginning from factorials and basic combinatorics and extending to the 
+multinomial theorem and various applications.
+
+These notes were written primarily for my own understanding and revision. 
+They reflect my learning process, and therefore may contain errors, 
+imprecisions, or omissions. I do not claim completeness or perfection.
+
+If you happen to find any mistake, I would greatly appreciate your feedback. 
+Please feel free to write to me at: \texttt{intmax2147@gmail.com}
+
+Mathematics is learned through refinement, and I hope this document continues 
+to improve over time.
+\newpage
+\input{factorial}
+\newpage
+\input{binoCoefficient}
+\newpage
+\section{Introduction to Binomial Theorem}
+The rule with which rational exponent of sum of two variable can be expressed is called binomial Theorem.Expression containing two terms is called binomial.\\
+Let $n \in N$, For any integer $n \in \N$ and any real numbers $x, y \in \R$,
+\[
+\begin{aligned}
+(x+y)^n &= \sum_{k=0}^{n} {}^{n}C_{k} x^{n-k} y^k \\[6pt]
+(x+y)^n &= {}^{n}C_{0}x^n 
++ {}^{n}C_{1}x^{\,n-1}y 
++ {}^{n}C_{2}x^{\,n-2}y^2 
++ \cdots 
++ {}^{n}C_{n}y^n
+\end{aligned}
+\]
+\subsection{Expansion Involving Negative Term}
+\[
+(x-2y)^2 = {}^{n}C_{0}x^n 
++ {}^{n}C_{1}x^{\,n-1}(-2y) 
++ {}^{n}C_{2}x^{\,n-2}(-2y)^2 
++ \cdots 
++ {}^{n}C_{n}(-2y)^n
+\]
+\subsection{Notes}
+\begin{itemize}
+    \item At any point of expansion the sum of exponent of both variable will always be $n$.
+    \item Number of term in the expansion of $(x+y)^n$ will be $n+1$
+    \item Coefficient equidistant from beginning and end will be equal.
+    \item The $k^{\text{th}}$ term from the end is the $(n-k+2)^{\text{th}}$ term from the beginning.
+    
+    \item The $k^{\text{th}}$ term from the end in $(x+y)^n$ is equal to the $k^{\text{th}}$ term from the beginning in $(x+y)^n$.
+\end{itemize}
+\newpage
+\subsection{Difference between Coefficient and Binomial Coefficient}
+
+\textbf{Example 1:} $(2x+3y)^7$
+
+For $(a+b)^n$, the general term is
+\[
+T_{r+1} = {}^{n}C_{r} a^{\,n-r} b^{\,r}.
+\]
+
+Here, $a=2x$, $b=3y$, and $n=7$.
+
+\medskip
+
+\textbf{General Term:}
+\[
+T_{r+1} = {}^{7}C_{r} (2x)^{7-r} (3y)^{r}
+\]
+
+\[
+= {}^{7}C_{r} 2^{\,7-r} x^{\,7-r} 3^{\,r} y^{\,r}
+\]
+
+\[
+= {}^{7}C_{r} 2^{\,7-r} 3^{\,r} \, x^{\,7-r} y^{\,r}.
+\]
+
+\medskip
+
+\textbf{Explanation:}
+
+\[
+{}^{7}C_{r}
+\]
+is called the \textbf{binomial coefficient}.
+
+\[
+{}^{7}C_{r} 2^{\,7-r} 3^{\,r}
+\]
+is the \textbf{coefficient} of the term 
+\[
+x^{\,7-r} y^{\,r}.
+\]
+\subsection{Equidistant Coefficient}
+\[
+\begin{aligned}
+    (x+y)^n &= {}^{n}C_{0}x^n 
++ {}^{n}C_{1}x^{\,n-1}y 
++ {}^{n}C_{2}x^{\,n-2}y^2 
++ \cdots 
++ {}^{n}C_{n}y^n \\
+(y+x)^n &= {}^{n}C_{0}y^n 
++ {}^{n}C_{1}y^{\,n-1}x 
++ {}^{n}C_{2}y^{\,n-2}x^2 
++ \cdots 
++ {}^{n}C_{n}x^n
+\end{aligned}
+\]
+\subsection{Some Common Expansion}
+\begin{enumerate}
+    \item $(1+x)^n = {}^{n}C_{0}
+    + {}^{n}C_{1}x
+    + {}^{n}C_{2}x^2
+    + \cdots
+    + {}^{n}C_{n}x^n$
+
+    \item $(1-x)^n = {}^{n}C_{0}
+    - {}^{n}C_{1}x
+    + {}^{n}C_{2}x^2
+    - {}^{n}C_{3}x^3
+    + \cdots
+    + (-1)^n[ {}^{n}C_{n}x^n]$
+
+    \item $(x+a)^{n} + (x-a)^{n}
+    = 2\left[
+    {}^{n}C_{0}x^n
+    + {}^{n}C_{2}x^{n-2}a^2
+    + {}^{n}C_{4}x^{n-4}a^4
+    + \cdots
+    \right]$
+
+    (Only even powers of $a$ appear.)
+
+    \item $(x+a)^{n} - (x-a)^{n}
+    = 2\left[
+    {}^{n}C_{1}x^{n-1}a
+    + {}^{n}C_{3}x^{n-3}a^3
+    + {}^{n}C_{5}x^{n-5}a^5
+    + \cdots
+    \right]$
+
+    (Only odd powers of $a$ appear.)
+\end{enumerate}
+\subsection{General Term}
+We have seen the expansion of $(x+y)^n$ and $(y+x)^n$ are same, but when asked about the $20^{th}$ term in the expansion of $(x+y)^n$, then this will not be same as the $20^{th}$ term in the expansion of $(y+x)^n$\\
+The $T_{r+1}$ term in the expansion is given by
+
+\[
+\boxed{
+T_{r+1} = {}^{n}C_{r} x^{\,n-r} y^{\,r},
+}
+\]
+where \( r = 0,1,2,\dots,n \).
+
+\section*{Middle Term}
+In order to find middle term we need to calculate three values: 
+\begin{enumerate}
+    \item $\frac{Total Term}{2}$
+    \item $\frac{Total Term+1}{2}$
+    \item $\frac{Total Term+2}{2}$
+\end{enumerate}
+
+\section*{Expression Multiplication}
+When two or more bracket in multiplication then: 
+\begin{enumerate}
+    \item At a time only one term in one bracket will take part in multiplication.
+    \item The Coefficient of final term will made up from the multiplication of individual Coefficient.
+\end{enumerate}
+See the given expression below \[
+(2x-3y)(x+4y)(x^2+1)(y-3) 
+\]
+\[
+(-3y)(4y)(x^2)(-3) = 36x^2y^2
+\]
+\section*{Maximum Value of Binomial Coefficient}
+Suppose given expression is $(a+b)^n$. In the expansion of the expression
+\begin{enumerate}
+    \item If $n \in even$, then $\frac{n}{2}$ will give maximum value in ${}^{n}C_{r}$.
+    \item If $n \in odd$, then $\frac{n+1}{2}$ and $\frac{n-1}{2}$ will give maximum value in ${}^{n}C_{r}$.
+\end{enumerate}
+\newpage
+\subsection*{Excercise}
+Find the number of term in the expansion of following expression
+\begin{enumerate}
+    \item $(x+y)^{n}$
+    \item $(x+y)^{2}$
+    \item $(x+2)^{3}$
+    \item $(x+y)^{4}$
+    \item $(x-y)^{n}$
+    \item $(x-y)^{3}$
+    \item $(2x+3y)^{3}$
+    \item $(x+y)^{10}$
+    \item $(x+y)^{15}$
+    \item $(2x-3y)^{10}$
+\end{enumerate}
+\subsection*{Question}
+\textbf{Simplify : ${}^{19}C_{1}\cdot3^{5}\cdot7^{35}+{}^{19}C_{2}\cdot3^{6}\cdot7^{33}+{}^{19}C_{3}\cdot3^{7}\cdot7^{31}+{}^{19}C_{4}\cdot3^{8}\cdot7^{28}\cdots$}
+\\
+\textbf{Solution}
+Lets talk about Arithmetic Progress (AP) first.\\
+Let say a AP is given $3,7,11,15,\cdots$.\\How to write the general term of this AP \\
+We observe the common difference is 4.So in general term $4r$ is confirm, now we have to decide from where we have to start the value of $r$, either start from 0 or start from 1. If we start from $0$ the general term will be $4r+3$. If we want to start $r$ from 1 then general term will be $4r-1$. \\
+
+One more example of AP General Term\\
+Let say the AP is: $120, 118, 116,114 \cdots$\\
+The common difference is $-2$, so in general term $-2r$ is to be confirmed. Now we have to decide wether we want $r$ to start from $0$ or $1$. If we start $r$ from 0 then general term will be, $-2r+120$. If we start $r$ from 1 then general term will be $-2r+122$ \\
+This is done, let come to our question, \\
+${}^{19}C_{1}\cdot3^{5}\cdot7^{35}+{}^{19}C_{2}\cdot3^{6}\cdot7^{33}+{}^{19}C_{3}\cdot3^{7}\cdot7^{31}+{}^{19}C_{4}\cdot3^{8}\cdot7^{28}\cdots$ \\
+The power of 3 follows a AP with common difference 1 and the power of 7 also follows AP with common difference $-2$, so general term for both will be, $(r+4)$ because r starts from 1, on similar line we have $(-2r+37)$ so the general term of the series given is\\
+$T_r = {}^{19}C_{r}3^{(r+4)}7^{(-2r+37)}$
+\subsection*{Question}
+\textbf{Find the $6^{th}$ term in the expansion of $\left(2x^2-\frac{1}{3x^2}\right)^{10}$.}\\
+\textbf{Solution} \\
+\[
+\begin{aligned}
+T_6 = {}^{10}C_{5}\times(2x^2)^5\times\left(\frac{-1}{3x^2}\right)^5 \\ \\
+={}^{10}C_{5} \times2^5\times x^{10} \left(\frac{-1}{3}\right)^5(\frac{1}{x^{10}})\\ \\
+={}^{10}C_{5}\times2^{5}\times \left(\frac{-1}{3}\right)^5
+\end{aligned}
+\]
+
+\subsection*{Question}
+\textbf{The value of $(\sqrt{5}+1)^5-(\sqrt{5}-1)^5$} \\
+\textbf{Solution: }\\
+\[\begin{aligned}
+{}^{5}C_{1}(\sqrt{5})^4+{}^{5}C_{3}(\sqrt{5})^2+{}^{5}C_{5}(\sqrt{5})^0 = 352
+\end{aligned}
+\]
+\subsection*{Question}
+\textbf{In the expansion of $\left(x-\frac{1}{x}\right)^6$}\\
+\textbf{Solution}: For $r=3$ , the constant term will be$T_4 = -20$
+
+\subsection*{Question}
+\textbf{Find the constant term in $\left(3x^2-\frac{5}{x}\right)^{20}$}\\
+\textbf{Solution:} For $r=15$, the corresponding term will be constant.
+\newpage
+\section{Finding Coefficient of term}
+\textbf{Question: }Find the coefficient of following in the expression
+\begin{enumerate}
+    \item $x^2y^8$ in $(x+y)^{10}$
+    \item $x^2y^8$ and $x^3y^{12}$ in $(x+y)^{15}$
+    \item $x^3y^7$ in $(2x-3y)^{10}$
+    \item $x^5y^10$ in $(2x+9y)^{15}$
+    \item $x^5, x^{-6}, x^{-5}$ in $\left(x+ \frac{1}{x^3}\right)^{10}$
+\end{enumerate}
+\subsection*{Question}
+\textbf{Find the coefficient of $x^{13}$ in $\left(2x+\frac{5}{x^2}\right)^{10}$} \\
+\textbf{Solution: } The coefficient is zero as no such term exist in the expansion. $r=\frac{7}{3}$, which is not valid.
+
+\subsection*{Question}
+\textbf{Find the coefficient of $x^{11}$ in $\left(2x+\frac{5}{x^2}\right)^{20}$}
+\textbf{Solution: } $r=3$ will give the coefficient of required term.
+
+\subsection*{Question}
+The value of
+\[
+\frac{1}{81^n}-\frac{10}{81^n}{}^{2n}C_{1}+\frac{10^2}{81^n}{}^{2n}C_{2}-\frac{10^3}{81^n}{}^{2n}C_{3}+\cdots+10^{2n}
+\]
+\textbf{Solution}
+\[
+\begin{aligned}
+    &=\frac{1}{81^n}\left[1-{10}\cdot{}^{2n}C_{1}+{10^2}\cdot{}^{2n}C_{2}-{10^3}\cdot{}^{2n}C_{3}+\cdots+10^{2n}\right]\\
+    &=\frac{1}{81^n}\left[{}^{2n}C_{0}-{10}\cdot{}^{2n}C_{1}+{10^2}\cdot{}^{2n}C_{2}-{10^3}\cdot{}^{2n}C_{3}+\cdots+10^{2n}\cdot{}^{2n}C_{2n}\right]\\
+    &=\frac{1}{81^n}\left[\sum_{r=0}^{2n}{}^{2n}C_{r}10^r\right] \\
+    &=\frac{1}{81^n}(1-10)^{2n}\\
+    &=\frac{1}{9^{2n}}\times9^{2n}\\
+    &=1
+\end{aligned}
+\]
+
+\subsection*{Question}
+\textbf{$(x+\sqrt{x^2-1})^6+(x-\sqrt{x^2-1})^6$}
+\textbf{Solution}\\
+$2\cdot(32x^6-48x^4+18x^2-1)$
+
+\subsection*{Question}
+\textbf{The $r_{th}$ term and $(r+4)^{th}$ are equal in the expansion of $(1+x)^{20}$. Then the value of $r$ will be}
+\textbf{Solution}
+\[
+{}^{20}C_{r-1} = {}^{20}C_{r+3} = 
+\]
+$r=9$
+
+\subsection*{Question}
+\textbf{Find the coefficient of term independent of $x$ in the expansion of\\ $(1+x+2x^3)(\frac{3}{2}x^2-\frac{1}{3x})^9$} \\
+\textbf{Solution}
+For $r=6$ and $r=7$ the term will be independent of x
+
+\subsection*{Question}
+\textbf{Find the term independent of$x$ in $(1+x)^m(1+\frac{1}{x})^n$}
+\textbf{Solution}
+
+\subsection*{Question }
+\textbf{In the expansion of $(x+a)^n$ if the sum of odd term be $P$ and the sum of even term be $Q$ then prove:}
+\begin{enumerate}[label=\Roman*.]
+    \item $P^2-Q^2 = (x^2-a^2)$
+    \item $4PQ = (x+a)^{2n}-(x-a)^{2n}$
+\end{enumerate}
+\textbf{Solution}\\
+\[
+\begin{aligned}
+    (x+a)^n & = {}^{n}C_{0}x^n+{}^{n}C_{1}\cdot x^{n-1}a^1+{}^{n}C_{2}\cdot x^{n-2}a^2+\cdots \\
+    (x+a)^n &= T_1+T_2+T_3+T_4+T_5+T_6+T_7\cdots \\
+    & = (T_1+T_3+T_5+T_7+T_9\cdots)+(T_2+T_4+T_6+T_8+T_{10}\cdots)\\
+    & = P+Q \\ \\
+    (x-a)^n & = {}^{n}C_{0}x^n-{}^{n}C_{1}\cdot x^{n-1}a^1{}^{n}C_{2}\cdot x^{n-2}a^2-\cdots \\
+    (x-a)^n &= T_1-T_2+T_3-T_4+T_5-T_6+T_7\cdots \\
+    & = (T_1+T_3+T_5+T_7+T_9\cdots)-(T_2+T_4+T_6+T_8+T_{10}\cdots)\\
+    & = P-Q \\
+    (x+a)^n &= P+Q \\
+    (x-a)^n &= P-Q \\ \\
+    (x+a)^n \cdot x-a)^n &= P^2 - Q^2 \\
+    \left[(x+a) \cdot x-a)\right]^n &= P^2-Q^2 \\
+    (x^2-a^2) &= P^2-Q^2 \\
+    (x+a)^{2n} &= P^2+Q^2+2PQ \\
+    (x-a)^{2n} &= P^2+Q^2-2PQ \\
+    (x+a)^{2n}-(x-a)^{2n} &= 4PQ \\
+\end{aligned}
+\]
+\newpage
+\subsection*{Question}
+\textbf{Find the number of irrational terms in the expansion of $(4^{\frac{1}{5}}+7^{\frac{1}{10}})^{45}$}\\
+\textbf{Solution}
+There are 41 irrational term.
+
+\subsection*{Question}
+\textbf{Find the number of rational term in the expansion of $(\sqrt[3]{2}+7 \cdot \sqrt[5]{8})$}\\
+\textbf{Solution: }The number of rational term are 5, 20, 35
+
+\subsection*{Question}
+\textbf{if $21^{st}$ and $22^{nd}$ terms in the expansion of $(1-x)^{44}$ equal then find $x$}\\
+\textbf{Solution: }
+$x = \frac{-7}{8}$
+
+\subsection*{Question}
+\textbf{Find the value of $n$ if the ratio of $7^{th}$ term from beginning and end in the expansion of $\left(2^{\frac{1}{3}}+3^{\frac{-1}{3}}\right)^n = \frac{1}{6}$}\\
+\textbf{Solution} : $n=11$
+
+\subsection*{Question}
+\textbf{Find the coefficient of $x^8$ in the expansion of $(2+3x+4x^3)$}
+
+\subsection*{Question}
+\textbf{Find the Middle Term of the following:}\\
+\begin{enumerate}[label=\Roman*.]
+    \item $(2x-3y)^{28}$
+    \item $\left(3x^2-\frac{5}{x^3}\right)^{31}$
+\end{enumerate}
+\newpage
+\section{Greatest Binomial Coefficient}
+\[
+\begin{aligned}
+    (1+x)^n &= {}^{n}C_{0}
+    + {}^{n}C_{1}x
+    + {}^{n}C_{2}x^2
+    + \cdots
+    + {}^{n}C_{n}x^n \\
+    &= {}^{n}C_{0}+{}^{n}C_{1}+{}^{n}C_{2}\cdots+{}^{n}C_{n}
+\end{aligned}
+\]
+For greatest binomial Coefficient
+\[
+\begin{aligned}
+    {}^{n}C_{r} &\geq {}^{n}C_{r-1}\\
+    \frac{n!}{r!\cdot(n-r)!} &\geq \frac{n!}{(r-1)!\cdot(n-r-1)!}\\
+    \frac{1}{r(n-r)} &\geq 1 \\ \\
+     \boxed{r(n-r)  \leq 1}
+\end{aligned}
+\]
+\subsection*{Notes}
+\begin{enumerate}
+    \item The middle term will be the greatest binomial coefficient.
+    \item If $n$ is even it implies the number of binomial coefficient will be odd and there will be only one greatest binomial coefficient.
+    \item If $n$ is odd then there will be even number of binomial coefficient hence there will be two greatest binomial coefficient and they both are equal.
+\end{enumerate}
+\subsection*{Question}
+\textbf{Find the value of $r$ for which the following binomial Coefficient are maximum: }
+\begin{enumerate}[label=\Roman*.]
+    \item ${}^{50}C_{r}$
+    \item ${}^{57}C_{r}$
+\end{enumerate}
+
+\subsection*{Question}
+\textbf{Find $r$ for which the binomial coefficient will be}
+\begin{enumerate}
+    \item Maximum
+    \item Minimum
+\end{enumerate}
+\textbf{Solution} \\
+\[
+\begin{aligned}
+    {}^{r}C_{5} = \frac{r\cdot(r-1)\cdot(r-2)\cdot(r-3)\cdot(r-4)\cdot}{5!}
+\end{aligned}
+\]
+The fraction does not depend on the denominator, it depends on the value of $r$, hence as $r$ increases the value will increase. The minimum value of $r$ will be 5.
+
+\section{Numerically Greatest Term}
+\subsection{Numerically Greatest Term}
+
+\[
+(x+y)^n = {}^{n}C_{0}x^n 
++ {}^{n}C_{1}x^{\,n-1}y 
++ {}^{n}C_{2}x^{\,n-2}y^2 
++ \cdots 
++ {}^{n}C_{n}y^n
+\]
+
+Numerically means without sign. \\
+For example: $ -6 > 4$
+\subsection*{Method 1}
+Assume $T_{r+1}$ is numerically greatest term, then 
+\[
+\left | T_{r} \right | \leq \left | T_{r+1} \right | \geq \left | T_{r+2}  \right |
+\]
+
+\subsection*{Method 2}
+\[
+\left( \frac{n+1}{1+\left|\frac{x}{y}\right|} \right) - 1
+\le r \le
+\left( \frac{n+1}{1+\left|\frac{x}{y}\right|} \right)
+\]
+
+\subsection*{Method 3}
+\[
+\begin{aligned}
+(x+y)^n 
+&= \binom{n}{0}x^n 
++ \binom{n}{1}x^{n-1}y 
++ \binom{n}{2}x^{n-2}y^2 
++ \cdots 
++ \binom{n}{n}y^n \\[6pt]
+&= T_1 + T_2 + T_3 + \cdots + T_{n+1}
+\end{aligned}
+\]
+
+\[
+|T_{r+1}| \ge |T_r|
+\]
+
+\[
+\left| \binom{n}{r} x^{\,n-r} y^r \right|
+\ge
+\left| \binom{n}{r-1} x^{\,n-r+1} y^{\,r-1} \right|
+\]
+
+\[
+\binom{n}{r} = \frac{n-r+1}{r}\binom{n}{r-1}
+\]
+
+\[
+\frac{n-r+1}{r}\, |x^{\,n-r} y^r|
+\ge
+|x^{\,n-r+1} y^{\,r-1}|
+\]
+
+\[
+\frac{1}{r}\, |x^{\,n-r} y^r|
+\ge
+\frac{1}{n-r+1}\, |x^{\,n-r-1} y^{\,r-1}|
+\]
+
+\[
+\boxed{
+r \le \frac{(n+1)|xy|}{1 - |xy|}
+}
+\]
+
+\subsection{For the expansion of $(1+x)^n$}
+\[
+\boxed{r \leq \frac{(n+1)|x|}{1+|x|}}
+\]
+
+\subsection*{Question}
+\textbf{Find the magnitude with greatest term in the expansion of of $(1+2x)^{25}$, when $x = \frac{-1}{5}$ }\\
+\textbf{Solution}: $r \leq 7.4$ hence $T_8$ will be numerically greatest term.
+
+\subsection*{Question}
+\textbf{Find the greatest term in the expansion of $(4_5x)^{20}$ where $x= \frac{1}{2}$}\\
+\textbf{Solution} Upon solving the inequality $r \leq 15$, hence, $T_{15}$ and $T_{16}$ will be greatest term.
+
+\newpage
+\section{Properties of Binomial Coefficient}
+\subsection*{Property 1}
+\[
+\boxed{{}^{n}C_{r} = {}^{n}C_{r-1}}
+\]
+
+\subsection*{Property 2}
+\[
+\boxed{{}^{n}C_{r} = Integer}
+\]
+
+\subsection*{Property 3}
+If,
+\[
+\boxed{{}^{n}C_{x} = {}^{n}C_{y}}
+\]
+then, either
+\[
+\begin{aligned}
+    &x = y \\
+    &or \\
+    &x+y = n
+\end{aligned}
+\]
+
+\subsection*{Property 4}
+\[
+\boxed{{}^{n}C_{r} + {}^{n}C_{r+1} = {}^{n+1}C_{r+1}}
+\]
+\[
+\boxed{{}^{n}C_{r}+{}^{n}C_{r-1} = {}^{n+1}C_{r}}
+\]
+
+\subsection*{Property 5}
+\[
+\boxed{{}^{n}C_{r} = \frac{n(n-1)(n-2)(n-3)\cdots(n-r+1)}{r!}}
+\]
+\textbf{Note:} This implies that product of $r$ natural number will always be divisible by $r!$
+
+\subsection*{Property 6}
+\[
+\boxed{\frac{{}^{n}C_{r}}{{}^{n}C_{r-1}} = \frac{n-r+1}{r}}
+\]
+
+\subsection*{Property 7}
+\[
+\boxed{r\cdot{}^{n}C_{r} = n \cdot{}^{n-1}C_{r-1}}
+\]
+\subsection*{Property 8}
+when r in denominator
+\[
+\boxed{\frac{{}^{n}C_{r}}{r+1} = \frac{^{n+1}C_{r+1}}{n+1}}
+\]
+\subsection*{Property 9}
+\[
+\boxed{ {}^{n}C_{r} \cdot {}^{r}C_{k}  = {}^{n}C_{k} \cdot {}^{n-k}C_{r-k}}
+\]
+
+\subsection*{Property 10}
+\textbf{Row Sum}\\
+Sum of all Binomial Coefficient $= 2^n$
+\[
+\begin{aligned}
+    &{}^{n}C_{0}+{}^{n}C_{1}+{}^{n}C_{2}+{}^{n}C_{3}+{}^{n}C_{4}+{}^{n}C_{5}+\cdots+{}^{n}C_{n} = 2^n \\
+    &\sum_{n}^{r=0}{}^{n}C_{r} = 2^n
+\end{aligned}
+\]
+\\
+\textbf{Generalized Row Sum} \[
+\sum_{n_1+n_2+n_3+ \cdots n_r = n} \frac{n!}{(n_1)!(n_2)!(n_3)! \cdots n_r!} = r^n
+\]
+
+\subsection*{Property 11}
+\[
+\sum^{n}_{r=0} (-1)^n \times {}^{n}C_{r} = 0
+\]
+\subsection*{Property 12}
+\textbf{Row Square Sum}
+\[
+\sum^{n}_{r=0} \left({}^{n}C_{r}\right)^2 = {}^{2n}C_{r}
+\]
+\subsection*{Property 13}
+\textbf{Column Sum}
+\[
+\sum^{n}_{k=0} {}^{k}C_{r} = {}^{n+1}C_{r+1}
+\]
+\subsection*{Property 14}
+Sum of all odd binomial coefficient $=$ Sum of all even binomial coefficient $=$ $2^{n-1}$
+\[
+\begin{aligned}
+     &{}^{n}C_{1}+{}^{n}C_{3}+{}^{n}C_{5}+{}^{n}C_{7}+\cdots = 2^{n-1} \\
+     &{}^{n}C_{0}+{}^{n}C_{2}+{}^{n}C_{4}+{}^{n}C_{6}+\cdots = 2^{n-1}
+\end{aligned}
+\]
+\subsection*{Property 15}
+\textbf{Vamdermonde's Identity}
+\[
+\sum^{k}_{r=0} {}^{m}C_{r} \times {}^{n}C_{k-r} = {}^{m+n}C_{ks}
+\]
+\subsection*{Property 16}
+Hockey Stick Property
+\[
+{}^{k}C_{k}+{}^{k+1}C_{k}+{}^{k+2}C_{k}+ \cdots +{}^{k+n}C_{k} = {}^{k+n+1}C_{k+1}
+\]
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{hockeyImg.png}
+    \caption{Pascal Triangle}
+    \label{fig:label}
+\end{figure}
+\newpage
+\section{Problem Based on Property}
+\subsection{Question}
+\textbf{Prove that $(n^2)!$ is divisible by $(n!)^n$} \\
+\textbf{Solution:}
+\[
+\begin{aligned}
+   &(n!)^2 = 1\cdot2\cdot3\cdots n^2 \\
+   &(n!)^2 = 1\cdot2\cdot3\cdots n\cdot(n+1)\cdots2n\cdots 3n \cdots(n-1)^2\cdot n^2\\
+   &=(1\cdot2\cdot3\cdots n)(n+1\cdots2n)(2n+1\cdots3n)\cdots(\cdots n^2)
+\end{aligned}
+\]
+All the grouping are $n$ natural number. Since all are consecutive $n$ natural number in each group. So each group must be divisible by $n!$ using property 4
+
+\subsection{Question}
+Find the value of the expression : 
+\[
+\frac{{}^{20}C_{1}}{{}^{20}C_{0}}+2\cdot \frac{{}^{20}C_{2}}{{}^{20}C_{1}}+3 \cdot \frac{{}^{20}C_{3}}{{}^{20}C_{2}} + \cdots+ 20\cdot \frac{{20}^{}C_{20}}{{}^{20}C_{19}}
+\]\\
+\textbf{Solution}\\
+The Expression can be written in compact for as,
+\[
+\begin{aligned}
+    &\sum_{r=1}^{20}r\cdot \frac{{}^{20}C_{r}}{{}^{20}C_{r-1}}\\
+    &property 5 \\
+    &\sum_{r=1}^{20}r\cdot \frac{n-r+1}{r} \\
+    &\sum_{r=1}^{20} (n-r+1)\\
+    &=210
+\end{aligned}
+\]
+
+\subsection{Question}
+Find the $\lambda$: \\
+\[
+({}^{n}C_{0}+{}^{n}C_{1})+({}^{n}C_{1}+{}^{n}C_{2})+({}^{n}C_{2}+{}^{n}C_{3})+\cdot({}^{n}C_{n-1}+{}^{n}C_{n}) = \lambda \cdot {}^{n}C_{1} \cdot {}^{n}C_{2}\cdot {}^{n}C_{2}\cdots {}^{n}C_{n}
+\] \\
+\textbf{Solution: } $\lambda = \frac{(n+1)^2}{n!}$
+
+\subsection{Question}
+Find the value of : 
+\[
+{}^{19}C_{0} + {}^{19}C_{1}\cdot {}^{19}C_{2}\cdots {}^{19}C_{9}
+\] \\
+\textbf{Solution: } $2^{18}$
+
+\subsection{Question}
+\[
+{}^{30}C_{1} + {}^{30}C_{1}\cdot {}^{30}C_{2}\cdots {}^{30}C_{14} = ?
+\]
+
+\newpage
+\section{Series sum in binomial Theorem}
+\subsection{Type 1 : When term containing $r$ is present in numerator.}
+\textbf{Method : } Use $r\cdot{}^{n}C_{r}$ formula to get rid of term containing $r$ and then use sum of binomial coefficient.
+\\ \\
+\textbf{Question 1: Find the sum of the series}\
+\[
+1 \cdot{}^{n}C_{0}+2 \cdot{}^{n}C_{1}+3 \cdot{}^{n}C_{2}+ 4\cdot{}^{n}C_{3}+\cdots
+\]
+\textbf{Solution: } $2^{n-1}\cdot (n+1)$
+\\
+\\
+\textbf{Question 2: Find the sum of the series}\
+\[
+5 \cdot{}^{17}C_{1}+8 \cdot{}^{17}C_{2}+11 \cdot{}^{17}C_{3}+ \cdots
+\]
+\textbf{Solution: } $51\cdot 2^{16}+ 2 \cdot 2^{17}-2$
+\\
+\\
+\textbf{Results} \\
+\[
+\boxed{\sum_{r=0}^{n} \cdot {}^{n}C_{r} = 2^n }
+\]
+
+\[
+\boxed{\sum_{r=0}^{n}r \cdot {}^{n}C_{r} = 2^{n-1}}
+\]
+
+\[
+\boxed{\sum_{r=0}^{n}r(r-1) \cdot {}^{n}C_{r} = n\cdot (n-1)\cdot2^{n-1}}
+\]
+
+\[
+\boxed{\sum_{r=0}^{n}r(r-1)(r-2) \cdot {}^{n}C_{r} = n\cdot (n-1)\cdot(n-2)\cdot2^{n-1}}
+\]
+
+\[
+\boxed{\sum_{r=0}^{n}r^2 \cdot {}^{n}C_{r} = n(n-1)2^{n-1}+n\cdot2^{n-1}}
+\]
+\\
+\\
+\newpage
+\textbf{Question:}
+\[
+1\cdot3\cdot {}^{20}C_{1}+3\cdot7\cdot {}^{20}C_{2}+5\cdot11\cdot {}^{20}C_{3}\cdots
+\]
+\\
+\textbf{Solution: } $8(20\cdot\ 19\cdot2^{18})+5 \cdot 2^{22}+ 2^{20}-1$ \\
+\subsection{Series sum of negative term}
+\[
+\begin{aligned}
+    &(1+x)^n = {}^{n}C_{0}
+    + {}^{n}C_{1}x
+    + {}^{n}C_{2}x^2
+    + \cdots
+    + {}^{n}C_{n}x^n \\
+    &x = -1 \\
+    &0 = {}^{n}C_{0} - {}^{n}C_{1}x + {}^{n}C_{2}x^2 - \cdots+ (-1)^{n} \cdot{}^{n}C_{n}x^n \\
+    &\boxed{{}^{n}C_{0} - {}^{n}C_{1}x + {}^{n}C_{2}x^2 - \cdots+ (-1)^{n} \cdot{}^{n}C_{n}x^n = 0}
+\end{aligned}
+\]
+ \\
+\textbf{Question: }
+\[
+{}^{30}C_{0} \cdot 5^{100} +{}^{30}C_{1}\cdot 5^{98} \cdot 3^3+{}^{30}C_{2}\cdot 5^{96} \cdot 3^6+ \cdots
+\] \\
+\textbf{Solution: } $2^{30}\cdot5^{40}$ \\
+\\
+\textbf{Question:} 
+\[
+1 \cdot{}^{50}C_{1} - 4 \cdot{}^{50}C_{2} \cdot 5^{2}+7 \cdot{}^{50}C_{3} \cdot 5^{4}-10\cdot{}^{50}C_{4} \cdot 5^{6}
+\]
+\newpage
+\subsection{Type 2: When term containing $r$ in the denominator}
+\begin{enumerate}
+    \item use $\frac{{}^{n}C_{r}}{r+1}$
+    \item Use Integration
+\end{enumerate}
+\textbf{Question:} \[
+\frac{{}^{25}C_{1}}{2}+\frac{{}^{25}C_{2}}{3}+\frac{{}^{25}C_{3}}{4}\cdots+\frac{{}^{25}C_{25}}{26}
+\]
+\textbf{Solution: }$\frac{2^{26}-27}{26}$ \\
+\\
+\textbf{Question: }\[
+\frac{{}^{40}C_{0}}{2}+\frac{{}^{40}C_{1}}{3}+\frac{{}^{40}C_{2}}{4}\cdots+\frac{{}^{40}C_{39}}{41}
+\]
+\textbf{Solution: } Find the compact form and then multiply and divide it by $(r+1)$  \\
+\\
+\textbf{Question: }
+\[
+\frac{{}^{32}C_{0}}{1\cdot2}+\frac{{}^{32}C_{2}}{2 \cdot3}+\frac{{}^{32}C_{2}}{3\cdot4}\cdots
+\]
+\\
+\textbf{Question}\[
+\frac{{}^{17}C_{0}}{1\cdot 2\cdot 3}\cdot 4^5-\frac{{}^{17}C_{1}}{2\cdot 3\cdot 4}\cdot 4^7+\frac{{}^{17}C_{2}}{3\cdot 4\cdot 5}\cdot 4^9- \cdots
+\]
+\\
+\textbf{Question: }\[
+\frac{{}^{n}C_{0}}{n}-\frac{{}^{n}C_{1}}{n+1}+\frac{{}^{n}C_{2}}{n+2}-\frac{{}^{n}C_{3}}{n+3}+\cdots
+\]\\
+\textbf{Solution: }
+we know
+\[
+\begin{aligned}
+    (1-x)^n = {}^{n}C_{0}
+    - {}^{n}C_{1}x
+    + {}^{n}C_{2}x^2
+    - {}^{n}C_{3}x^3
+    + \cdots \\
+\end{aligned}
+\]
+Multiply the above equation by $x^{n-1}$ and integrate from 0 to 1. \\ 
+\\
+\textbf{Question} \[
+\frac{{}^{n}C_{0}}{(n+2)(n+3)}-\frac{{}^{n}C_{1}}{(n+3)(n+4)}
++\frac{{}^{n}C_{2}}{(n+4)(n+5)}-\cdots
+\] \\
+\newpage
+\subsection{Type 3: When series contain product of two binomial coefficient}
+If the sum of lower sub-script of two binomial coefficient in general term is constant or can be made constant then multiply corresponding binomial expansion and compare appropriate coefficient on both side. \\
+\\
+\textbf{Question}
+Lecture Number: 68\\
+\[
+{}^{n}C_{0}\cdot{}^{n+2}C_{3}+{}^{n}C_{1}\cdot{}^{n+2}C_{4}+{}^{n}C_{2}\cdot{}^{n+2}C_{5}+\cdots
+\]\\
+\\
+\textbf{Solution: }
+${}^{2n+2}C_{n-1}$ \\
+\\
+\textbf{Question}
+Lecture 69\\
+\[
+{}^{n-3}C_{4}.{}^{2n+1}C_{2}+{}^{n-3}C_{5}.{}^{2n+1}C_{3}+{}^{n-3}C_{6}.{}^{2n+1}C_{4}+\cdots
+\] \\
+\\
+\textbf{Question:}
+Lecture 70
+\[
+{}^{n}C_{0}\cdot{}^{2n}C_{0}+{}^{n}C_{1}\cdot{}^{2n}C_{1}+{}^{n}C_{2}\cdot{}^{2n}C_{2}+\cdots
+\]\\
+\\
+\textbf{Question:} Lecture 70
+\[
+{}^{n}C_{n}\cdot{}^{n}C_{1}+{}^{n}C_{n-1}\cdot{}^{n}C_{2}+{}^{n}C_{n-2}\cdot{}^{n}C_{3}+\cdots
+\]\\
+\\
+\textbf{Question: }Lecture 71
+\[
+{}^{n}C_{n}\cdot{}^{n+1}C_{1}+{}^{n}C_{n-1}\cdot{}^{n+1}C_{2}+{}^{n}C_{n-2}\cdot{}^{n+1}C_{3}+\cdots
+\]\\
+\\
+\textbf{Question: }Lecture 72
+\[
+{1}\cdot{}^{n}C_{0}\cdot{}^{n}C_{2}+
+{2}\cdot{}^{n}C_{1}\cdot{}^{n}C_{3}+
+{3}\cdot{}^{n}C_{2}\cdot{}^{n}C_{4}+\cdots
+\]
+\textbf{Question}\[
+(1+x+x^2)^n = 
+a_0+
+a_1\cdot x^1+
+a_2\cdot x^2+
+a_3\cdot x^3+ \cdots
+a_{2n}\cdot x^{2n}
+\]
+the fin the sum \[
+a_0\cdot{}^{n}C_{0}-
+a_1\cdot{}^{n}C_{1}+
+a_2\cdot{}^{n}C_{2}-
+a_3\cdot{}^{n}C_{3}+\cdots
+\]
+
+\newpage
+\subsection{Type 4: When lower subscript of binomial coefficient is constant}
+\textbf{Procedure:} Replace the term with corresponding expansion then manipulate.\\
+\\
+\textbf{Example:} \\
+Coefficient of $x^12$ in $(x+1)^{25} = {}^{25}C_{12}$ ,\\
+or we can also say \\
+${}^{25}C_{12} = $ Coefficient of $x^12$ in $(x+1)^{25}$\\
+\\
+\textbf{Exmaple: } \\
+${}^{41}C_{18}+{}^{31}C_{18} = $ Coefficient of $x^{18}$ in $(x+1)^{41}$ +  Coefficient of $x^{18}$ in $(x+1)^{31}$ \\
+Coefficient of $x^{18}$ in $((1+x)^{41}+(1+x)^{31})$ \\
+\\
+\textbf{Exmaple: }\\
+\[
+\begin{aligned}
+    {}^{30}C_{7}+{}^{31}C_{7}+{}^{41}C_{7}
+\end{aligned}
+\]
+= Coefficient of $x^7$ in $((1+x)^{30}+(1+x)^{31}+(1+x)^{41})$ \\
+= Coefficient of $x^7$ in $((1+x)^{30}+(1+x)^{31}+(1+x)^{41}+(1+x)^6)$ \\
+Adding lower power will not affect the coefficient. \\
+\\
+\textbf{Question: }Find \[
+{}^{k}C_{k}+
+{}^{k+1}C_{k}+
+{}^{k+2}C_{k}+ \cdots
+{}^{k+n}C_{k}
+\]
+\\
+\textbf{Solution: }\\
+Coefficient of $x^k$ in 
+$((1+x)^{k}+
+(1+x)^{k+1}+
+(1+x)^{k+2}+\cdots+
+(1+x)^{k+n}
+)
+$\\
+\\
+Coefficient of $x^k$ in 
+$((1+x)^{k}+
+(1+x)^{k+1}+
+(1+x)^{k+2}+\cdots+
+(1+x)^{k+n}+
+(1+x)^{k-1}+ 
+(1+x)^{k-2}+
+(1+x)^{k-3}+ =\cdots+
+(1+x)+
+1)$\\
+\\
+Coefficient of $x^k$ in $
+(
+    1+
+    (1+x)+
+    (1+x)^{2}+
+    (1+x)^{3}+
+    (1+x)^{4}+
+    (1+x)^{5}+ \cdots
+    (1+x)^{k}+\cdots+
+    (1+x)^{n}
+)
+$ \\
+The above expression become geometric progression we can find the sum using GP\\
+\\
+\\
+\textbf{Question: }Lecture 75 \\
+\[
+{}^{n}C_{0} \cdot {}^{n}C_{n}-
+{}^{n}C_{1} \cdot {}^{2n}C_{n}+
+{}^{n}C_{2} \cdot {}^{3n}C_{n}- \cdots
+\]
+\\
+\newpage
+\section{Multinomial Theorem}
+\subsection{Introduction}
+Coefficient of $x^{n_1}\cdot y^{n_2}\cdot z^{n_3}$ in the expansion of $(k_1\cdot x+k_2\cdot y+k_3\cdot z)^n$
+\begin{enumerate}
+    \item $0$ if $n_1+n_2+n_3 \ne n$ 
+    \item $\left(\frac{n!}{n_1! \cdot n_2! \cdot n_3! }\right)\cdot k_1^{n_1}\cdot k_2^{n_2}\cdot k_3^{n_3}$ \\ if $n_1+n_2+n_3 = n$
+\end{enumerate}
+\subsection{Trinomial}
+\[
+\begin{aligned}
+    (x+y+z)^n &= (x+y+z)(x+y+z)(x+y+z)\cdots(x+y+z) \\
+    &= {}^{n}C_{n_1}x^{n_1} \times {}^{n-1}C_{n_2}y^{n_2} \times {}^{n-n_1-n_2}C_{n-n_1-n_2}z^{n-n_1-n_2}\\
+    &= \frac{n!}{(n-n_1)! n_1!} \cdot x^{n_1} \times \frac{(n-n_1)!}{(n-n_1-n_2)! (n-n_1)!} \cdot y^{n_2} \times z^{n_3} \\
+    &= x^{n_1}\cdot y^{n_2} \cdot z^{n_3} \times \frac{n!}{{n_1}!{n_2}!{n_3}!} \\
+    &= \frac{n!}{{n_1}!{n_2}!{n_3}!} \times x^{n_1}\cdot y^{n_2} \cdot z^{n_3}
+\end{aligned}
+\] \\
+\\
+\textbf{Question: }In the expansion of $(3x-4y+8z)^{25}$ coefficient of:
+\begin{enumerate}
+    \item $x^2y^3z^7$
+    \item $x^{19}y^2z^4$
+    \item $z^{21}y^4$
+\end{enumerate}
+\textbf{Question: }Find the coefficient of $x^5$ in the expansion of $(4-3x+7x^2)$ \\
+\\
+\textbf{Question: } Expand $(x+y+z)^2$ \\
+\\
+\textbf{Question: }Find the number of term in the following expansion 
+\begin{enumerate}
+    \item $(x+y+z)^{10}$
+    \item $(x+y+z)^{15}$
+    \item $(x+y+z+w+a)^{20}$
+\end{enumerate}
+\textbf{Question} Find the coefficient of : 
+\begin{enumerate}
+    \item $x^2y^3z^5$ in the expansion of $(x+y+z)^{10}$
+    \item $x^2y^3z^{10}$ in the expansion of $(x+y+z)^{15}$
+\end{enumerate}
+\textbf{Question} Find the coefficient of following int the expansion of $(2x-3y+4z)^{10}$
+\begin{enumerate}
+    \item $x^2y^3z^5$
+    \item $x^3y^4z^5$
+\end{enumerate}
+\subsection{Number of term}
+Numbe of term in the expansion of \[
+\left(
+    x_1+
+    x_2+
+    x_3+
+    x_4+ \cdots+
+    x_k
+\right)^n
+\]
+will be ${}^{x+k-1}C_{k-1}$. All variable should be different.\\
+\\
+\textbf{Question: }Number of term in the expansion of $(x+y+z)^{20}$ \\
+\subsection{Binomial Theorem for Rational and Negative Integer}
+\[
+(1+n)^n = 1+ nx + \frac{n(n-1)}{2!}x^2+\frac{n(n-1)(n-2)}{3!}x^3+\cdots+\infty
+\]
+$n = Rational Number/Negative Inetger$ \\
+$|n|<1$
+\newpage
+\section{Application of Binomial Theorem}
+\subsection{Last Digit Repetition Cycle}
+
+The unit digit of $n^m$ repeats cyclically as $m$ increases. 
+The cycle depends only on the unit digit of $n$.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Base (Unit Digit) & Repeating Cycle & Cycle Length \\
+\hline
+1 & 1 & 1 \\
+2 & 2,4,8,6 & 4 \\
+3 & 3,9,7,1 & 4 \\
+4 & 4,6 & 2 \\
+5 & 5 & 1 \\
+6 & 6 & 1 \\
+7 & 7,9,3,1 & 4 \\
+8 & 8,4,2,6 & 4 \\
+9 & 9,1 & 2 \\
+\hline
+\end{tabular}
+\caption{Unit Digit Cycles of Powers}
+\end{table}
+
+\textbf{Example: }The last digit of following number
+\begin{enumerate}
+    \item $2^{4m} \rightarrow 6$
+    \item $2^{4m+1} \rightarrow 2$
+    \item $2^{4m+2} \rightarrow 64$
+\end{enumerate}
+\textbf{Question: }What will be last digit of expression \\
+\[
+2222^{5555}+7777^{3333}
+\]
+\textbf{Solution: }\\
+Since 2 and 7 have repeat cycle of 4 hence the power will be represented in the multiple of 4\\ 
+\[
+\begin{aligned}
+    &=2222^{5555}+7777^{3333} \\
+    &= 2222^{4m+3}+7777^{4m+1} \\
+    &=8+7 \\
+    &=15 \\
+    &=5 \\
+\end{aligned}
+\]
+\newpage
+\subsection{Last two digit}
+To find last digit of $n^m$ express base in term of $(10k \pm 1)$ then expand. It will work when unit digit of $x$ is $[1,3,7,9]$ \\
+\\
+\textbf{Question: }Find last two digit of $3^{73}$.
+\\ 
+\textbf{Solution: }
+\[
+\begin{aligned}
+    &= 3 \cdot 3^{72} \\
+    &= 3 \cdot (3^2)^{36} \\
+    &= 3 \cdot (10-1)^{36} \\
+    &= 3 \cdot (
+    {}^{36}C_{0} \cdot10^{36}+
+    {}^{36}C_{1} \cdot10^{35}
+    {}^{36}C_{2}+ \cdot10^{34} \cdots +
+    {}^{36}C_{34} \cdot 10^{2}-
+    {}^{36}C_{35}+
+    {}^{36}C_{36})
+\end{aligned}
+\]
+When we have $10^2$ then last digit will be $00$ so we just have to add the rest numbers. \\
+\\
+\textbf{Question: }Find the last two digit of $2^{51}$ \\
+\textbf{Solution: }Break the number in $(30+2)$ and expand.
+\subsection{Divisibility Test}
+If a natural number $n$ is divisible by $m$, the remainder can take value from \\ $\{0,1,2,3, \cdots ,m-1\}$ \\
+\\
+$R \left(\frac{n}{m}\right) = k$, then $ k \in \{0,1,2,3, \cdots ,m-1\}$ \\
+\\
+$R \left(\frac{m\cdot n}{m}\right) = R \left(\frac{n}{m}\right)$ \\ 
+\\
+\textbf{Formula 1:}
+\[
+\begin{aligned}
+    (x^n+y^n) = (x+y)\left[
+        x^{n-1} - 
+        x^{n-2} \cdot y^{1}+
+        x^{n-3} \cdot y^{2}-
+        x^{n-4} \cdot y^{3}+
+        x^{n-5} \cdot y^{4}\cdots +
+        y^{n-1}
+        \right]
+\end{aligned}
+\]
+This formula is applicable only when n is odd \\
+\\
+\textbf{Formula 1:}
+\[
+\begin{aligned}
+    (x^n - y^n) = (x-y)\left[
+        x^{n-1} - 
+        x^{n-2} \cdot y^{1}+
+        x^{n-3} \cdot y^{2}+
+        x^{n-4} \cdot y^{3}+
+        x^{n-5} \cdot y^{4}\cdots +
+        y^{n-1}
+        \right]
+\end{aligned}
+\]
+\newpage
+\noindent
+\textbf{Question: }Check whether $17^{51}+8^{51}$ is divisible by 5. \\
+\\
+\textbf{Question: }Check whether $17^{30}+8^{30}$ is divisible by 9.
+\\ 
+\\
+\textbf{Question: }Check whether $20^{45}+50^{91}$ is divisible by 7. Further check whether it is divisible by 14.
+\subsection{Remainder: }
+To find remainder when $n^m$ is divided by $p$. List exponent of $n$ and multiple of $p$ and then identify two number which has difference of 1. Then to find required remainder express $n^m$ in term of identified number.\\
+\\
+\textbf{Question: } Find the remainder when $2^{157}$ when divide by $7$. \\
+\\
+\textbf{Solution: }\\
+$p = 7$ \\
+$n^m = 2^{157}$, $n = 2, m = 157$\\
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+Power of $2$ & Multiple of $7$ \\
+\hline
+2  & 7  \\
+4  & 14 \\
+8  & 21 \\
+16 & 28 \\
+32 & 35 \\
+64 & 42 \\
+\hline
+\end{tabular}
+\caption{Relation between powers of 2 and multiples of 7}
+\end{table}
+\\
+Now you can see (8, 7) have the difference of 1. \\
+\[
+\begin{aligned}
+    &= 2^{157} \\
+    &= 2 \cdot (2^3)^52 \\
+    &= 2 \cdot(8)^52 \\
+    &= 2 \cdot (1+7)^52 \\
+\end{aligned}
+\]
+Here we can expand $(1+7)^{52}$. The terms will have power 7. Which is absouletly didivible by 7. Some term will not have, add them and find the remainder.\\
+\\
+\textbf{Question: } $R\left( \frac{(123)^{85}}{11}\right)$
+\newpage
+\section{Problems}
+\subsection*{Problem 1}
+For \[
+2 \leq r \leq n, {}^{n}C_{r}+ 2\cdot {}^{n}C_{r-1}+{}^{n}C_{r-2}=
+\]
+\begin{enumerate}[label = (\Alph*)]
+    \item ${}^{n+1}C_{r-1}$
+    \item ${}^{n+1}C_{r+1}$
+    \item ${}^{n+2}C_{r}$
+    \item ${}^{n+2}C_{r}$
+\end{enumerate}
+
+\subsection*{Problem 2}
+Find the coefficient of $x^{49}$ in the polynomial
+\[
+\left( {x}  - \frac{C_1}{C_0} \right)
+\left( {x}  - 2^{2}\cdot \frac{C_2}{C_1}\right)
+\left( {x}  - 3^{2}\cdot \frac{C_3}{C_2} \cdots \right)
+\left( {x}  - 50^{2}\cdot \frac{C_{50}}{C_{49}}\right)
+\]
+Where $C_{r} = {}^{50}C_{r}$
+
+\subsection*{Problem 3}
+The sum\[
+\sum_{i=0}^{m} {}^{10}C_{i} \cdot {}^{20}C_{m-i}
+\]
+Where $ {}^{p}C_{q} = 0$ if $p < q$ \\
+The sum is maximum when m is 
+\begin{enumerate}[label = (\Alph*)]
+    \item 5
+    \item 10
+    \item 15
+    \item 20
+\end{enumerate}
+
+\subsection*{Problem 4: }
+Prove that \[
+2^{k} \cdot {}^{n}C_{0} \cdot {}^{n}C_{k} -
+2^{k-1} \cdot {}^{n}C_{1} \cdot {}^{n-1}C_{k-1} +
+2^{k-2} \cdot {}^{n}C_{2} \cdot {}^{n-2}C_{k-2} \cdots 
+(-1)^{n} \cdot {}^{n}C_{k} \cdot {}^{n-k}C_{0} = 
+{}^{n}C_{k}
+\]
+\subsection*{Problem 5}
+For any positive integer m, n (with $n \geq m$),Prove that, 
+\[
+{}^{n}C_{m}+
+{}^{n-1}C_{m}+
+{}^{n-2}C_{m}+ \cdots +
+{}^{n-m}C_{m} = 
+{}^{n+1}C_{m+1}
+\]
+Hence or otherwise prove that 
+\[
+{}^{n}C_{m}+
+2 \cdot{}^{n-1}C_{m}+
+3 \cdot{}^{n-2}C_{m}+ \cdots +
+(n-m+1)\cdot {}^{n-m}C_{m} = 
+{}^{n+1}C_{m+1}
+\]
+\newpage
+\input{questionBank}
+\end{document}

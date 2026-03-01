@@ -1,0 +1,80 @@
+\section{Introduction to Binomial Coefficient}
+Binomial Coefficient is denoted by: \[
+\boxed{{}^{n}C_{r} = \frac{n!}{r!(n-r)!}}
+\]\\
+\textbf{Example: }\\
+\[
+{}^{10}C_{3} = \frac{10!}{3!(10-3)!} = \frac{10!}{3! \times 7!} = 120
+\]
+
+\textbf{Observation: }\\
+Since factorial can never be negative,so\\
+\[
+n-r \geq 0 \implies n \geq r 
+\]
+
+\subsection{Meaning of Binomial Coefficient}
+The binomial coefficient represent number of ways in which $r$ different objects can be selected from $n$ different object. Here the position of object does not matter.
+
+\textbf{Example: }\\
+\[
+{}^{4}C_{2} = \frac{4!}{2! \times2!} = 6
+\]
+So there are 6 ways of choosing 2 different items from 4 distinct items. Lets verify.\\
+Lets have $\{A,B,C,D\}$\\
+Different combination of selection:
+$(AB), (BC), (CD), (DA), (AC), (BD)$\\
+Also, $(AB)=(BA)$
+
+\subsection{More Interpretation: }
+We can also conclude the number of ways of selection is equal to number of ways of rejection. \\
+Suppose we have to select $r$ object from $n$, either we can count the number of selecting $r$ objects from $n$ or we can select the $n-r$ object from $n$ object.
+\subsection{Example}
+Let's take an example of selecting 3 different objects from 7 different objects. ${}^{7}C_{3}$\\
+or we can say select 4 different object from 7 different object, that will be ${}^{7}C_{4}$
+
+\subsection{Formula}
+With above discussion we can conclude\[
+\boxed{{}^{n}C_{r} = {}^{n}C_{n-r}}
+\]
+
+\subsection{Observation: }
+\[
+{}^{n}C_{r} = \frac{1\cdot2\cdot3\cdots(n-3)\cdot(n-2)\cdot(n-1)\cdot n}{r!(n-r)!}
+\]
+We can cancel terms from numerator till $n-r$, so\\
+\[
+{}^{n}C_{r} = \frac{(n-r+1)\cdot(n-r+2)\cdots(n-3)\cdot(n-2)\cdot(n-1)\cdot n}{r!}
+\]
+
+To count the number of terms in a range of value $lastTerm-firstTerm+1$\\
+So in the range, 
+\[
+\begin{aligned}
+(n-r+1)\cdot(n-r+2)\cdots(n-1)\cdot n 
+&= \text{Last term} - \text{First term} + 1 \\
+&= n - (n-r+1) + 1 \\
+&= n - n + r - 1 + 1 \\
+&= r.
+\end{aligned}
+\]
+What we can observe that we have to expand the numerator $r$ times and divide by $r!$
+
+\subsection{Observation}
+\[
+{}^{n}C_{r} = \frac{n!}{r!(n-r)!}
+\]\\
+\[
+{}^{n}C_{r} = \frac{n\cdot(n-1)!}{r\cdot(r-1)!(n-r)!}
+\]\\
+\[
+\boxed{
+{}^{n}C_{r} = \frac{n}{r}\times {}^{n-1}C_{r-1} 
+}
+\]
+
+\subsection{Formula}
+\begin{itemize}
+    \item $\boxed{{}^{n}C_{0}= {}^{n}C_{n}=1}$
+    \item $\boxed{{}^{n}C_{1}={}^{n}C_{n-1}= n}$
+\end{itemize}
